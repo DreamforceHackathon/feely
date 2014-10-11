@@ -22,6 +22,9 @@
 
 module.exports.routes = {
 
-    '/': 'HomeController.index'
+    'GET /': 'HomeController.index',
+
+    'GET /twitter/search'  : 'TwitterController.search',
+    'GET /twitter/callback': 'TwitterController.oauth_callback'
 
 };
