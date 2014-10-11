@@ -13,7 +13,10 @@ module.exports = (function(){
         TwitterService.search({
             q: req.query.q
         }, function (err, data) {
-            return res.json(data);
+            return res.json({
+                status: 'OK',
+                data: data
+            });
         });
     }
 

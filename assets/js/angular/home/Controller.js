@@ -11,6 +11,13 @@ define(['angular', 'home/services/Twitter'], function (angular, toastr) {
 	return angular.module('Home.controllers', ['Home.services'])
 
 		.controller('HomeController', ['$scope', '$location', 'Twitter', function ($scope, $location, Twitter) {
-			$scope.name = "Twitter"
+			$scope.search = function () {
+				Twitter.search({
+					q: $scope.q
+				}, function (err, data) {
+					$scope.results = data;
+					console.log(data);
+				});
+			};
 		}]);
 });
