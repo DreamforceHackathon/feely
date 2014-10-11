@@ -9,10 +9,6 @@
 
 module.exports = (function(){
 
-	function index (req, res) {
-		return res.view();
-	}
-
 	function twitter_search (req, res) {
 		TwitterService.search({
 			q: req.query.q
@@ -26,7 +22,6 @@ module.exports = (function(){
 	}
 
     return {
-        index: index,
 		twitter_callback: twitter_callback,
 
         _config: {}
