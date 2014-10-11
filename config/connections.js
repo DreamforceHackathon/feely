@@ -21,9 +21,4 @@
 
 module.exports.connections = {
 
-    mongoDB: {
-        adapter: 'sails-mongo',
-        url: process.env.MONGOHQ_URL
-    }
-
 };
