@@ -20,6 +20,8 @@
     "angular": "~1.2.20",
     "angular-loading-bar": "~0.3.0",
     "jquery": "~2.1.1",
-    "requirejs": "~2.1.11"
+    "requirejs": "~2.1.11",
+    "highchart-ng": "~0.0.7",
+    "highstock-release": "~2.0.4"
   }
 }

@@ -6,14 +6,15 @@
 
     <title>Feely - Visualize your feels</title>
 
-    <link rel="stylesheet" href="js/vendor/angular-loading-bar/build/loading-bar.min.css" />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/style.min.css" />
 </head>
 
 <body>
     <div ng-controller="HomeController">
         <input type="text" ng-model="q" />
         <button ng-click="search()">Search</button>
+
+        <highchart config="chartConfig"></highchart>
 
         <ul>
             <li ng-repeat="result in results">
@@ -22,7 +23,7 @@
         </ul>
     </div>
 
-    <script src="js/vendor/requirejs/require.js" data-main="js/angular/Home"></script>
+    <script src="js/vendor/requirejs/require.js" data-main="js/angular/home.min"></script>
 </body>
 
 </html>

@@ -9,13 +9,16 @@ require.config({
     baseUrl: 'js/angular',
     paths: {
         jquery: '../vendor/jquery/dist/jquery.min',
+        highStock: '../vendor/highstock-release/highstock',
         angular: '../vendor/angular/angular.min',
-        angularLoadingBar: '../vendor/angular-loading-bar/build/loading-bar'
+        angularLoadingBar: '../vendor/angular-loading-bar/build/loading-bar',
+        angularHighChart: '../vendor/highchart-ng/dist/highcharts-ng.min'
     },
     shim: {
         jquery: { exports: '$' },
         angular: { exports: 'angular', deps: ['jquery'] },
-        angularLoadingBar: ['angular']
+        angularLoadingBar: ['angular'],
+        angularHighChart: ['angular', 'highStock']
     }
 });
 
