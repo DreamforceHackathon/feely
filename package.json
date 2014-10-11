@@ -1,0 +1,30 @@
+{
+  "name": "Feely",
+  "description": "Visualize your feels",
+  "author": "Jeff Lee",
+  "version": "0.1.0",
+  "private": true,
+  "repository": "https://github.com/DreamforceHackathon/repository-259",
+  "main": "app.js",
+  "license": "",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "ejs": "~0.8.4",
+    "gulp": "^3.8.6",
+    "gulp-concat": "^2.3.3",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-requirejs": "^0.1.3",
+    "gulp-uglify": "^0.3.1",
+    "iniparser": "^1.0.5",
+    "newrelic": "^1.8.0",
+    "nodetime": "^0.8.15",
+    "rc": "~0.5.0",
+    "sails": "~0.10.4",
+    "sails-mongo": "^0.10.4"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
