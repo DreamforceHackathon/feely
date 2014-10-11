@@ -20,8 +20,20 @@ module.exports = (function(){
     });
 
     function search (params, cb) {
-        twit.get('search/tweets', { q: params.q + ' since:2011-11-11', count: 100 }, function(err, data, response) {
-            cb(null, data);
+        twit.get('search/tweets', { q: params.q + ' since:2014-01-01', count: 1000 }, function(err, data, response) {
+            cb(null, data.statuses.map(function (status) {
+                var sentimentScore = sentiment(status.text);
+
+                return {
+                    tweet: status.text,
+                    sentiment: sentimentScore,
+                    createdAt: status.created_at,
+                    location: status.place,
+                    lang: status.lang
+                };
+            }).filter(function (status) {
+                return status.lang === 'en' && status.sentiment.score !== 0;
+            }));
         });
     }
 
