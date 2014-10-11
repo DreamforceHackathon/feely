@@ -6,7 +6,7 @@
  */
 
 require.config({
-    baseUrl: '/js/angular',
+    baseUrl: 'js/angular',
     paths: {
         jquery: '../vendor/jquery/dist/jquery.min',
         angular: '../vendor/angular/angular.min',
