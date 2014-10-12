@@ -3,6 +3,7 @@ var concat = require('gulp-concat');
 var minifyCSS = require('gulp-cssmin');
 var rjs = require('gulp-requirejs');
 var uglifyJs = require('gulp-uglify');
+var zip = require('gulp-zip');
 
 var paths = {
 	target: '.tmp/public',
@@ -51,3 +52,22 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['uglifyJs', 'minifyCSS', 'compileAssets', 'watch']);
+
+
+/** Build for CocoonJS **/
+gulp.task('build', function () {
+	gulp.src('.tmp/public/js/angular/home.min.js')
+		.pipe(gulp.dest('build/js/angular'));
+
+	gulp.src('.tmp/public/styles/style.min.css')
+		.pipe(gulp.dest('build/styles'));
+
+	gulp.src('assets/index.html')
+		.pipe(gulp.dest('build'));
+});
+
+gulp.task('zip', function () {
+	gulp.src('build/**')
+		.pipe(zip('feely.zip'))
+		.pipe(gulp.dest('assets'));
+});
