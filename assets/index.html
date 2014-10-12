@@ -9,19 +9,47 @@
     <link rel="stylesheet" href="styles/style.min.css" />
 </head>
 
-<body>
-    <div ng-controller="HomeController">
-        <input type="text" ng-model="q" />
-        <button ng-click="addTag()">Search</button>
-        <button ng-click="search(true)">Refresh</button>
-        
-        <ul>
-            <li ng-repeat="tag in tagList">
-                <a href="#{{ tag }}" ng-click="viewTag(tag)">{{ tag }}</a>
-            </li>
-        </ul>
+<body ontouchstart="" ng-controller="HomeController" ng-cloak>
+    <div class="navbar navbar-default">
+        <input type="search" placeholder="Search Twitter" ng-model="q" ng-keyup="searchEnter($event)" />
+    </div>
 
-        <highchart config="chartConfig"></highchart>
+    <div class="row">
+        <div class="col-sm-4">
+            <ul class="list" id="list">
+                <li class="subject active" ng-repeat="tag in tagList" ng-click="viewTag(tag, $event)">
+                    <div class="name">
+                        <p>#{{ tag }}</p>
+                    </div>
+                    <div class="score">
+                        <div class="total">
+                            <p>{{ tagInfo[tag].sum }}</p>
+                        </div>
+                        <div class="daily" ng-class="{ negative: tagInfo[tag].latest < 0 }">
+                            <p><span ng-if="tagInfo[tag].latest > 0">+</span>{{ tagInfo[tag].latest }}</p>
+                        </div>
+                    </div>
+                    <div class="delete-btn" style="position: absolute; right: 6px; transition: -webkit-transform 0.25s ease-in-out, opacity 0.25s ease-in-out; -webkit-transition: -webkit-transform 0.25s ease-in-out, opacity 0.25s ease-in-out; opacity: 0; transform: translate3d(20px, 0px, 0px); -webkit-transform: translate3d(20px, 0px, 0px); top: 13.5px;">Delete</div>
+                </li>
+            </ul>
+
+            <div class="divider">
+                <div class="centering">
+                    <div class="logo"></div>
+                </div>
+                <button class="daily-toggle toggle">
+                    <p>D</p>
+                </button>
+                <button class="weekly-toggle toggle active-toggle">
+                    <p>W</p>
+                </button>
+                <button class="refresh" ng-click="search(true)"><i class="fa fa-repeat"></i></button>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <highchart config="chartConfig"></highchart>
+        </div>
     </div>
 
     <script src="js/vendor/requirejs/require.js" data-main="js/angular/home.min"></script>

@@ -1,0 +1,185 @@
+* {
+    /*outline: 1px solid red;*/
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.navbar {
+    text-align: center;
+    position: relative;
+    /*border-bottom: 1px solid #773AB7;*/
+}
+
+::-webkit-input-placeholder {
+   color: #A25AFF;
+}
+
+.navbar > input {
+    width: 300px;
+    border: none;
+    background: rgba(0,0,0,0.25);
+    border-radius: 5px;
+    height: 30px;
+    position: relative;
+    bottom: -26px;
+    box-sizing: border-box;
+    padding: 7.5px;
+    font-size: 17px;
+    color: white;
+    font-weight: 400;
+}
+
+.col-sm-4 {
+    position: relative;
+    /*height: 257px;*/
+    height: 47vh;
+}
+
+.col-sm-8 {
+    background-color: purple;
+}
+
+ul, li {
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.list {
+    /*height: 217px;*/
+    height: calc(47vh - 40px);
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.subject {
+    padding: 0 10px;
+    background: white;
+    border-bottom: 1px solid #C48DFF;
+    box-sizing: border-box;
+    padding: 8px 10px;
+}
+
+.subject > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.active {
+    background: rgba(159,78,244,0.6);
+    color: white;
+}
+
+.score {
+    float: right;
+}
+
+.score > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.total {
+    margin-right: 5px;
+}
+
+.daily {
+    background: #00BA1F;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.negative {
+    background: #EA3D3D;
+}
+
+p {
+    margin: 2px 0 !important;
+}
+
+.divider {
+    width: 100%;
+    height: 40px;
+    background: #9F4EF4;
+    position: absolute;
+    bottom: 0;
+    padding: 5px 10px;
+}
+
+.divider > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.toggle {
+    height: 30px;
+    width: 30px;
+    border-radius: 200px;
+    background: rgba(0,0,0,0.3);
+    margin-right: 2px;
+    text-align: center;
+    color: #A25AFF;
+    padding: 1px;
+    border: none;
+    position: relative;
+    z-index: 10;
+}
+
+.active-toggle {
+    background: rgba(255,255,255,0.3);
+    color: #9F4EF4;
+}
+
+.centering {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 25px;
+    width: 100%;
+    left: 0px;
+}
+
+.logo {
+    background: url("../images/feely-logo.png");
+    height: 25px;
+    width: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+.refresh {
+    position: absolute;
+    background: none;
+    border: none;
+    padding: 0;
+    color: rgba(0,0,0,0.3);
+    font-size: 25px;
+    right: 10px;
+    top: 2px;
+}
+
+.refresh i:active {
+    color: rgba(0,0,0,0.6);
+}
+
+@media (min-width: 768px) {
+    .col-sm-4 {
+        height: calc(100vh - 64px);
+        border-right: 1px solid #C48DFF;
+    }
+
+    .col-sm-8 {
+        height: calc(100vh - 64px);
+    }
+}

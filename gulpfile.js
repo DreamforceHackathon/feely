@@ -21,6 +21,8 @@ var paths = {
 
 var cssFiles = [
 	'assets/js/vendor/angular-loading-bar/build/loading-bar.min.css',
+	'assets/styles/bootstrap.css',
+	'assets/styles/font-awesome.min.css',
 	'assets/styles/style.css'
 ];
 
