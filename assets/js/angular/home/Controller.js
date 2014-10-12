@@ -28,7 +28,7 @@ define(['angular', 'angularHighChart', 'home/services/Twitter'], function (angul
 
 	            series : [{
 	                data : [],
-	                name : 'AAPL',
+	                name : '',
 	                tooltip: {
 	                    valueDecimals: 2
 	                }
