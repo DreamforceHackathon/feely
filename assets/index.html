@@ -3,8 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <title>Feely - Visualize your feels</title>
+    <link href="feely-splash.png" rel="apple-touch-startup-image" sizes="640x1096">
+
+    <title>Feely</title>
+
 
     <link rel="stylesheet" href="styles/style.min.css" />
 </head>
@@ -49,6 +54,8 @@
 
         <div class="col-sm-8">
             <highchart config="chartConfig"></highchart>
+            <div class="overlay"></div>
+            <div class="background"></div>
         </div>
     </div>
 

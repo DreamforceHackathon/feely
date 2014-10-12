@@ -4,10 +4,12 @@
 
 html {
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
     height: 100%;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -39,10 +41,6 @@ body {
     position: relative;
     /*height: 257px;*/
     height: 47vh;
-}
-
-.col-sm-8 {
-    background-color: purple;
 }
 
 ul, li {
@@ -173,13 +171,42 @@ p {
     color: rgba(0,0,0,0.6);
 }
 
+.col-sm-8 {
+    position: relative;
+    height: calc(53vh - 64px);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: calc(53vh - 64px);
+    background: -webkit-linear-gradient(rgba(255,255,255,0.2), rgba(110,110,110,0.5));
+    z-index: -5;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: calc(53vh - 64px);
+    background: #9F4EF4;
+    z-index: -10;
+}
+
 @media (min-width: 768px) {
     .col-sm-4 {
         height: calc(100vh - 64px);
-        border-right: 1px solid #C48DFF;
+        border-right: 1px solid white;
     }
 
     .col-sm-8 {
+        height: calc(100vh - 64px);
+    }
+
+    .overlay, .background {
         height: calc(100vh - 64px);
     }
 }

@@ -28,6 +28,25 @@ define(['angular', 'angularHighChart', 'home/services/Twitter'], function (angul
 					},
 					scrollbar: {
 						enabled: false
+					},
+					xAxis: {
+						labels: {
+							style: {
+								color: "rgba(255,255,255,0.5)"
+							}
+						}
+					},
+					yAxis: {
+						labels: {
+							style: {
+								color: "rgba(255,255,255,0.5)"
+							}
+						}
+					},
+					plotOptions: {
+						line: {
+							color: "rgba(255,255,255,1)"
+						}
 					}
 				},
 

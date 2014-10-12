@@ -33,14 +33,14 @@ gulp.task('uglifyJs', function () {
 		mainConfigFile: "assets/js/angular/Home.js",
 		out: "home.min.js"
 	})
-	.pipe(uglifyJs())
+	// .pipe(uglifyJs())
 	.pipe(gulp.dest(paths.target + '/js/angular'));
 });
 
 gulp.task('minifyCSS', function () {
 	gulp.src(cssFiles)
 		.pipe(concat('style.min.css'))
-		.pipe(minifyCSS())
+		// .pipe(minifyCSS())
 		.pipe(gulp.dest(paths.target + '/styles'));
 });
 
@@ -64,8 +64,9 @@ gulp.task('build', function () {
 	gulp.src('.tmp/public/styles/style.min.css')
 		.pipe(gulp.dest('build/styles'));
 
-	gulp.src('assets/index.html')
-		.pipe(gulp.dest('build'));
+	gulp.src('assets/fonts/**').pipe(gulp.dest('build/fonts'));
+	gulp.src('assets/images/**').pipe(gulp.dest('build/images'));
+	gulp.src('assets/index.html').pipe(gulp.dest('build'));
 });
 
 gulp.task('zip', function () {
