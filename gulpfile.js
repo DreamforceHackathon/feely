@@ -33,14 +33,14 @@ gulp.task('uglifyJs', function () {
 		mainConfigFile: "assets/js/angular/Home.js",
 		out: "home.min.js"
 	})
-	// .pipe(uglifyJs())
+	.pipe(uglifyJs())
 	.pipe(gulp.dest(paths.target + '/js/angular'));
 });
 
 gulp.task('minifyCSS', function () {
 	gulp.src(cssFiles)
 		.pipe(concat('style.min.css'))
-		// .pipe(minifyCSS())
+		.pipe(minifyCSS())
 		.pipe(gulp.dest(paths.target + '/styles'));
 });
 

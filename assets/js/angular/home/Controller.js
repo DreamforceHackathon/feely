@@ -66,15 +66,18 @@ define(['angular', 'angularHighChart', 'home/services/Twitter'], function (angul
 			};
 
 			$scope.addTag = function () {
-				if ($scope.tagList.indexOf($scope.q) === -1) {
+				$scope.currTag = $scope.q;
+				$scope.q = '';
+
+				if ($scope.tagList.indexOf($scope.currTag) === -1) {
 					$('.active').removeClass('active');
 
-					$scope.tagList.push($scope.q);
-					$scope.tagInfo[$scope.q] = {};
+					$scope.tagList.push($scope.currTag);
+					$scope.tagInfo[$scope.currTag] = {};
 					$scope.search(true);
 				} else {
-					// $scope.chartConfig.title.text = $scope.q;
-					$scope.chartConfig.series[0].data = $scope.resultList[$scope.q].data;
+					// $scope.chartConfig.title.text = $scope.currTag;
+					$scope.chartConfig.series[0].data = $scope.resultList[$scope.currTag].data;
 				}
 			};
 
@@ -82,9 +85,9 @@ define(['angular', 'angularHighChart', 'home/services/Twitter'], function (angul
 				$('.active').removeClass('active');
 				$(e.currentTarget).addClass('active');
 
-				$scope.q = tag;
-				// $scope.chartConfig.title.text = $scope.q;
-				$scope.chartConfig.series[0].data = $scope.resultList[$scope.q].data;
+				$scope.currTag = tag;
+				// $scope.chartConfig.title.text = $scope.currTag;
+				$scope.chartConfig.series[0].data = $scope.resultList[$scope.currTag].data;
 			};
 
 			$scope.deleteTag = function (tag) {
@@ -105,20 +108,20 @@ define(['angular', 'angularHighChart', 'home/services/Twitter'], function (angul
 					$('.refresh i').addClass('fa-spin');
 
 					Twitter.search({
-						q: $scope.q
+						q: $scope.currTag
 					}, function (err, data) {
-						$scope.tagInfo[$scope.q] = {
+						$scope.tagInfo[$scope.currTag] = {
 							sum: data.reduce(function (prev, curr) { prev += curr.sentiment.score; return prev; }, 0),
 							latest: data[data.length - 1].sentiment.score
 						};
 
-						$scope.resultList[$scope.q] = {
+						$scope.resultList[$scope.currTag] = {
 							data: data.map(function (d) {
 								return [d.createdAt * 1000, d.sentiment.score];
 							})
 						};
 
-						// $scope.chartConfig.title.text = $scope.q;
+						// $scope.chartConfig.title.text = $scope.currTag;
 						$scope.chartConfig.series[0].data = data.map(function (d) {
 							return [d.createdAt * 1000, d.sentiment.score];
 						});
@@ -126,8 +129,8 @@ define(['angular', 'angularHighChart', 'home/services/Twitter'], function (angul
 						$('.refresh i').removeClass('fa-spin');
 					});
 				} else {
-					// $scope.chartConfig.title.text = $scope.q;
-					$scope.chartConfig.series[0].data = $scope.resultList[$scope.q].data;
+					// $scope.chartConfig.title.text = $scope.currTag;
+					$scope.chartConfig.series[0].data = $scope.resultList[$scope.currTag].data;
 				}
 			};
 		}]);
