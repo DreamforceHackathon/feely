@@ -53,6 +53,12 @@ define(['angular', 'angularHighChart', 'home/services/Twitter'], function (angul
 				$scope.chartConfig.series[0].data = $scope.resultList[$scope.q].data;
 			};
 
+			$scope.deleteTag = function (tag) {
+				var index = $scope.tagList.indexOf(tag);
+				$scope.tagList.splice(index, 1);
+				delete $scope.resultList[tag];
+			};
+
 			$scope.search = function (refreshOrNew) {
 				if (refreshOrNew) {
 					Twitter.search({
