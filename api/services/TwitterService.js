@@ -9,6 +9,7 @@
 
 var sentiment = require('sentiment');
 var Twit = require('twit');
+var moment = require('moment');
 
 module.exports = (function(){
 
@@ -27,12 +28,14 @@ module.exports = (function(){
                 return {
                     tweet: status.text,
                     sentiment: sentimentScore,
-                    createdAt: status.created_at,
+                    createdAt: parseInt(moment(new Date(status.created_at)).format('X')),
                     location: status.place,
                     lang: status.lang
                 };
             }).filter(function (status) {
                 return status.lang === 'en' && status.sentiment.score !== 0;
+            }).sort(function (a, b) {
+                return a.createdAt - b.createdAt;
             }));
         });
     }
