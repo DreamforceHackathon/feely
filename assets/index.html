@@ -12,15 +12,16 @@
 <body>
     <div ng-controller="HomeController">
         <input type="text" ng-model="q" />
-        <button ng-click="search()">Search</button>
-
-        <highchart config="chartConfig"></highchart>
-
+        <button ng-click="addTag()">Search</button>
+        <button ng-click="search(true)">Refresh</button>
+        
         <ul>
-            <li ng-repeat="result in results">
-                {{ result.sentiment.score }} | {{ result.tweet }}
+            <li ng-repeat="tag in tagList">
+                <a href="#{{ tag }}" ng-click="viewTag(tag)">{{ tag }}</a>
             </li>
         </ul>
+
+        <highchart config="chartConfig"></highchart>
     </div>
 
     <script src="js/vendor/requirejs/require.js" data-main="js/angular/home.min"></script>
