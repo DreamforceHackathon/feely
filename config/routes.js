@@ -24,7 +24,8 @@ module.exports.routes = {
 
     'GET /': 'index.html',
 
-    'GET /twitter/search'  : 'TwitterController.search',
-    'GET /twitter/callback': 'TwitterController.oauth_callback'
+    'GET /twitter/search'    : 'TwitterController.search',
+    'GET /twitter/search/raw': 'TwitterController.search_raw',
+    'GET /twitter/callback'  : 'TwitterController.oauth_callback'
 
 };
